@@ -1,5 +1,18 @@
 import checkPropTypes from 'check-prop-types'
-import Congrats from '../src/Congrats'
+
+import rootReducer from '../src/reducers';
+import { createStore } from 'redux'
+
+/**
+ * Create a testing store with imported reducers, middleware, and intial state
+ * globals: rootReducer
+ * @function storeFactory
+ * @param {object} initialState - initial state for store
+ * @return {Store} - Redux store
+ */
+export const storeFactory = (initialState) => {
+  return createStore(rootReducer, initialState);
+}
 
 /**
  *Return ShallowWrapper container node(s) with the given data-test value
@@ -12,6 +25,10 @@ export const findByTestAttr = (wrapper, val) => {
 };
 
 export const checkProps = (component, conformingProps) => {
-  const propError = checkPropTypes(component.propTypes, conformingProps, 'prop', component.name);
+  const propError = checkPropTypes(
+    component.propTypes,
+    conformingProps,
+    'prop',
+    component.name);
   expect(propError).toBeUndefined();
 }
