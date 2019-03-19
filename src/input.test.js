@@ -9,7 +9,9 @@ import Input from './input';
 /**
  * Factory function to create a ShallowWrapper for the Input component
  * redux 6 использовать mount c <provider store={store}
- * dive - это на один уровень ниже  обертки тоесть huc_component(component) он спуститься ниже huc в component
+ * dive - это на один уровень ниже  обертки тоесть hoc_component(component) он спуститься ниже hoc в component
+ * Enzyme .dive -  Child component from Connected Hight Order Component
+ *
  * @function setup
  * @param {object} initialState - Initial state for this setup
  * @returns {ShallowWrapper}
@@ -29,7 +31,6 @@ describe('render', ()=> {
     beforeEach(()=>{
       const initialState = {success: false};
       wrapper = setup(initialState)
-      console.log(wrapper.debug())
     })
 
 
