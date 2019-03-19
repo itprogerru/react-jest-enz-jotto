@@ -5,6 +5,8 @@ class Input extends Component {
 
 
   render() {
+
+
     const contents = this.props.success
       ? null
       : (
@@ -32,8 +34,8 @@ class Input extends Component {
   }
 }
 
-const mapStateToProps = (state) => {
-  return {};
+const mapStateToProps = ({success}) => {
+  return {success};
 }
 
 export default connect(mapStateToProps)(Input);
